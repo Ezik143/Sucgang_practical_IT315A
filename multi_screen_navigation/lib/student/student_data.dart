@@ -1,6 +1,6 @@
 import 'package:multi_screen_navigation/student/student.dart';
 
-final List<Student> students = [
+List<Student> students = [
   Student(
     studentId: 'IT-2023-001',
     name: 'kulafu man',
@@ -89,6 +89,46 @@ final List<Student> students = [
     course: 'BS Information Technology',
     hobby: 'Creative writing',
     favoriteSubject: 'Information Assurance and Security',
+    status: 'Active',
+  ),
+  Student(
+    studentId: 'TEST-001',
+    name: 'test1',
+    yearLevel: 1,
+    course: 'BS Information Technology',
+    email: 'test1@example.com',
+    status: 'Active',
+  ),
+  Student(
+    studentId: 'TEST-002',
+    name: 'test2',
+    yearLevel: 1,
+    course: 'BS Information Technology',
+    email: 'test2@example.com',
+    status: 'Active',
+  ),
+  Student(
+    studentId: 'TEST-003',
+    name: 'test3',
+    yearLevel: 1,
+    course: 'BS Information Technology',
+    email: 'test3@example.com',
+    status: 'Active',
+  ),
+  Student(
+    studentId: 'TEST-004',
+    name: 'test4',
+    yearLevel: 1,
+    course: 'BS Information Technology',
+    email: 'test4@example.com',
+    status: 'Active',
+  ),
+  Student(
+    studentId: 'TEST-005',
+    name: 'test5',
+    yearLevel: 1,
+    course: 'BS Information Technology',
+    email: 'test5@example.com',
     status: 'Active',
   ),
 ];

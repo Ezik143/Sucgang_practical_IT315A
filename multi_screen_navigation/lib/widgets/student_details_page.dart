@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multi_screen_navigation/student/student.dart';
+import 'package:multi_screen_navigation/widgets/add_student_page.dart';
 
 class StudentDetailsPage extends StatelessWidget {
   final Student student;
@@ -39,6 +40,11 @@ class StudentDetailsPage extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
+                  'email: ${student.email}',
+                  style: TextStyle(color: Colors.white),
+                ),
+                SizedBox(height: 20),
+                Text(
                   'hobby: ${student.hobby}',
                   style: TextStyle(color: Colors.white),
                 ),
@@ -50,26 +56,20 @@ class StudentDetailsPage extends StatelessWidget {
                 Row(
                   children: [
                     ElevatedButton(
-                      onPressed: () {
-                        showModalBottomSheet(
-                          context: context,
-                          builder: (context) {
-                            return Padding(
-                              padding: const EdgeInsets.all(15),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  TextButton(
-                                    onPressed: () {},
-                                    child: Text("save"),
-                                  ),
-                                  CloseButton(),
-                                ],
-                              ),
+                      onPressed: () async {
+                        final updatedStudent =
+                            await showModalBottomSheet<Student>(
+                              context: context,
+                              isScrollControlled: true,
+                              useSafeArea: true,
+                              builder: (_) => AddStudentPage(student: student),
                             );
-                          },
-                        );
+
+                        if (!context.mounted || updatedStudent == null) {
+                          return;
+                        }
+
+                        Navigator.of(context).pop(updatedStudent);
                       },
                       child: Text("Edit"),
                     ),
